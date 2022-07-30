@@ -6,12 +6,12 @@
     <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
       Nueva Experiencia Laboral
     </button>
-
+<br><br>
   </div>
 
   <div class="col lg 1"></div>
   <div class="col-lg-11">
-    <table class="table">
+    <table class="table table-striped">
       <tbody>
         <tr *ngFor="let Experiencia of expe">
           <td><h4>{{Experiencia.nombreE}}</h4></td>

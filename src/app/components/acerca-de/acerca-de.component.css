@@ -18,6 +18,8 @@ div {
   text-align:left;
 }
 
+/*--- Para la vista de celular ---*/
+
 @media (min-width: 576px) {
   #imagen-perfil {
     position: absolute;

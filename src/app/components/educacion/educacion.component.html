@@ -6,12 +6,12 @@
     <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
       Nueva Educación
     </button>
-
+    <br><br>
   </div>
 
   <div class="col lg 1"></div>
   <div class="col-lg-11">
-    <table class="table">
+    <table class="table table-striped">
       <tbody>
         <tr *ngFor="let Educacion of educ">
           <td><h4>{{Educacion.nombreEd}}</h4></td>
