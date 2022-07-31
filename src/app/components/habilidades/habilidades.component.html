@@ -1,15 +1,20 @@
 <div class="row">
-   <h2>Habilidades</h2>
-  <div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="80"
-      [radius]="100"
+  <h2>Hard & Soft Skills</h2>
+  <div class="col-lg-2">
+    <button type="button" class="btn btn-dark" routerLink="/nuevaskill" *ngIf="isLogged">
+      Nueva Skill
+    </button>
+  </div>
+
+  <div *ngFor= "let skill of skill" class="text-center col-sm-4 col-md-4 col-lg-3">
+
+    <circle-progress
+      [percent]="skill.descripcionS"
+      [radius]="90"
       [showUnits]="false"
-      [imageSrc]="'../../../assets/html.png'"
-      [showImage]="true"
-      [imageHeight]="80"
-      [imageWidth]="80"
+      [title]="skill.nombreS"
       [showSubtitle]="false"
+      [subtitle]="skill.nombreS"
       [outerStrokeWidth]="14"
       [innerStrokeWidth]="2"
       [outerStrokeColor]="'blue'"
@@ -18,103 +23,19 @@
       [animationDuration]="1200"
       [outerStrokeGradient]="false"
       [lazy]="true"
-></circle-progress>
-</div>
-<div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="60"
-      [radius]="100"
-      [showUnits]="false"
-      [imageSrc]="'../../../assets/CSS.png'"
-      [showImage]="true"
-      [imageHeight]="90"
-      [imageWidth]="80"
-      [outerStrokeWidth]="14"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'blue'"
-      [animation]="true"
-      [animationDuration]="1200"
-      [lazy]="true"
-></circle-progress>
-</div>
-<div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="60"
-      [radius]="100"
-      [showUnits]="false"
-      [imageSrc]="'../../../assets/js.png'"
-      [showImage]="true"
-      [imageHeight]="80"
-      [imageWidth]="80"
-      [showSubtitle]="false"
-      [outerStrokeWidth]="14"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'blue'"
-      [animation]="true"
-      [animationDuration]="1200"
-      [lazy]="true"
-></circle-progress>
-</div>
-<br><br><br><br><br><br><br><br><br><br>
-<div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="60"
-      [radius]="100"
-      [showUnits]="false"
-      [imageSrc]="'../../../assets/Python.png'"
-      [showImage]="true"
-      [imageHeight]="80"
-      [imageWidth]="80"
-      [showSubtitle]="false"
-      [outerStrokeWidth]="14"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'blue'"
-      [animation]="true"
-      [animationDuration]="1200"
-      [lazy]="true"
-></circle-progress>
-</div>
-<div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="60"
-      [radius]="100"
-      [showUnits]="false"
-      [imageSrc]="'../../../assets/github2.png'"
-      [showImage]="true"
-      [imageHeight]="80"
-      [imageWidth]="80"
-      [showSubtitle]="false"
-      [outerStrokeWidth]="14"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'blue'"
-      [animation]="true"
-      [animationDuration]="1200"
-      [lazy]="true"
-></circle-progress>
-</div>
-<div class="text-center col-sm-4 col-md-4 col-lg-4">
-  <circle-progress
-      [percent]="60"
-      [radius]="100"
-      [showUnits]="false"
-      [imageSrc]="'../../../assets/Ingles.png'"
-      [showImage]="true"
-      [imageHeight]="80"
-      [imageWidth]="80"
-      [showSubtitle]="false"
-      [outerStrokeWidth]="14"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'blue'"
-      [animation]="true"
-      [animationDuration]="1200"
-      [lazy]="true"
-></circle-progress>
-<br><br><br><br><br>
-</div>
-<hr>
+    >
+    </circle-progress>
+
+    <div *ngIf="isLogged">
+      <button class="btn btn-primary" routerLink="/editskill/{{skill.id}}">
+      <i class="bi bi-pen"></i></button>
+      </div>
+
+    <div *ngIf="isLogged">
+      <button class="btn btn-danger mt-2" (click)="delete(skill.id)">
+      <i class="bi bi-trash"></i></button>
+      </div>
+
+  </div>
+  <hr class="mt-5">
 </div>

@@ -8,6 +8,36 @@
     <div class=" col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 imagen-proyecto">
       <img src="../../../assets/Proyecto-portfolio.jpg" alt="proyecto" class="img-fluid img-pro">
     </div>
+<br><br><br><br>
+
+
+    <!-- TABLA -->
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-dark" routerLink="/nuevoproy" *ngIf="isLogged">
+        Nuevo Proyecto
+      </button>
+    </div>
+
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor="let Proyectos of proy">
+            <td><h4>{{Proyectos.nombreP}}</h4></td>
+            <td>{{Proyectos.descripcionP}}</td>
+            <td *ngIf="isLogged">
+              <button class="btn btn-primary" routerLink="/editproy/{{Proyectos.id}}">
+              <i class="bi bi-pen"> Editar</i></button>
+            </td>
+
+            <td *ngIf="isLogged">
+              <button class="btn btn-danger" (click)="delete(Proyectos.id)">
+              <i class="bi bi-trash"></i> Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 <br><br><br><br><br>
   </div>
 
